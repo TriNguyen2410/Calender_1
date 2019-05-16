@@ -1,0 +1,32 @@
+void Insertion_Sort(int a[], int n)			//we not need the swap function because if we swap the function, it make the condition much complexity and divide to much more case between swapping and conered, sometime we dont know that we are gonna do.
+{
+	int hold;			//hold value.
+	//int number_ele_sub_arr = 1;		//hold first element in array push to the sub array and the sub array now have the one element is first of array.
+	int index_check = 1;
+	while (index_check < n)
+	{
+		hold = a[index_check];		//for understand what the a[index_check] contained,
+		//for (int check = 0; check < index_check; check++)		//check from 0 to the index hold 'hold' value.
+		//{
+		int check = 0;
+		while(check < index_check)
+		{
+			if (a[check] > hold)
+			{
+				//conered array from the index that greater than hold to hold index.
+				for (int i = index_check ; i > check; i--)		//the 'index_check' that hold the address of 'hold' variable.
+				{
+					a[i] = a[i - 1];		
+				}
+				//then put the hold index to the location fill to make the sub array greater.
+				a[check] = hold;		//assign the element that greater than hold is the hold and break the compare loop between 
+				break;		//when insertion success, then break out to go for the next compare index_check.
+			}
+			else //if(a[check] <= hold)	//the value of index_check, is the value of hold variable, 		//equivalent with hold >= a[check]	or hold >= element(s) in sub array.
+			{
+				check++;
+			}
+		}
+		index_check++;		//increase the hold index to 1.
+	}	
+}
