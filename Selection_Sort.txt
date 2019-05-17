@@ -1,0 +1,18 @@
+void Selection_Sort(int a[], int n)
+{
+	int index_replace;
+	index_replace = 0;
+	while (index_replace < n - 1)	//or while(index_replace <= n - 2)	//if the index go to the last element index, the condition will conered, that we just set to the index_replace to the second last node and break out.
+	{
+		if (index_replace == findmininrange(a, index_replace, n))		//if the index we check to swap have a index equal with the index of the minimum value of the array we check, then go to the next index and continue check.
+		{
+			index_replace++;		//increase index check to 1 and continue compare with the min value till the big loop is not satisfy the condition anymore.
+			continue;		//ignore all below statement in this line, 
+		}
+		else		//if ( index_replace != findmaxinrange(a, index_replace, n - 1)
+		{
+			swap(a[index_replace], a[findmininrange(a, index_replace, n)]);
+			index_replace++;
+		}
+	}
+}
