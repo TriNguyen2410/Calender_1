@@ -1,3 +1,26 @@
+void swap(int &a, int &b)
+{
+	int temp;
+	temp = a;
+	a = b; 
+	b = temp;
+}
+
+int findmininrange(int a[], int start, int end_index)		//the returned of the function is the index of the minimum value in range (start, end ) index of array.
+{
+	int min = a[start];
+	int index = start;		//if the variable has declared but not initialize value, the value of it is unpredictable.
+	for (int i = start + 1; i < end_index; i++)
+	{
+		if (min > a[i])
+		{
+			min = a[i];
+			index = i;
+		}
+	}
+	return index;
+}
+
 void Selection_Sort(int a[], int n)
 {
 	int index_replace;
